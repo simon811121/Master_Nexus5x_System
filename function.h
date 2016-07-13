@@ -1,3 +1,5 @@
+// In This .h all the function 
+
 #ifndef FUNCTION_H
 #define FUNCTION_H
 
@@ -42,12 +44,12 @@ void set_cpu_freq(int cpu, int freq) {
 //******************************//
 //  Thermal			//
 //******************************//
-int get_cpu_temp(int cpu) {	// cpu=7 for gpu, default for cpu0,1
-	char buffer[100];
-	FILE *cpu_f;
+int get_temp(int num) {		//num=2,3,4,5 for cpu 2,3,4,5 (default for cpu 0,1)
+	char buffer[100];	//num=7 for gpu, num=8 for battery(back)
+	FILE *cpu_f;		
 	int zone = 0;	
 
-	switch (cpu) {
+	switch (num) {
 		case 2:	//cpu2
 			zone = 9;
 		case 3:	//cpu3
@@ -58,6 +60,8 @@ int get_cpu_temp(int cpu) {	// cpu=7 for gpu, default for cpu0,1
 			zone = 14;
 		case 7:	//gpu
 			zone = 12;
+		case 8: //battery(back)
+			zone = 1;
 		default://cpu0,1
 			zone = 8;
 	}	
@@ -104,7 +108,7 @@ int get_battery(int coef) {
 		fclose(bat);
 		return f;
 	} else {
-		return -1;
+		return 0;
 	}
 }
 

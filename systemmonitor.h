@@ -53,7 +53,7 @@ void set_cpu_freq(int cpu, int freq);
 //******************************//
 //  Thermal			//
 //******************************//
-int get_cpu_temp(int cpu);	// cpu=7 for gpu, default for cpu0,1
+int get_temp(int num);		//num=2,3,4,5 for cpu 2,3,4,5 (default for cpu 0,1)	//num=7 for gpu, num=8 for battery(back)
 
 //******************************//
 //  Battery			//
